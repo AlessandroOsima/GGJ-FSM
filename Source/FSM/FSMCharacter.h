@@ -9,6 +9,7 @@ class AFSMCharacter : public ACharacter
 	GENERATED_BODY()
 
 	/** Side view camera */
+	UPROPERTY(VisibleAnywhere, Category = Camera)
 	class UCameraComponent* SideViewCameraComponent;
 
 	/** Camera boom positioning the camera beside the character */
@@ -29,7 +30,6 @@ protected:
 	// APawn interface
 	virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) override;
 	// End of APawn interface
-
 
 public:
 	AFSMCharacter();
