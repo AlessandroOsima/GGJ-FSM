@@ -1,0 +1,11 @@
+/Binaries
+/DerivedDataCache
+/Intermediate
+/Saved
+*.sln
+*.sdf
+BaseBlank.sdf
+BaseBlank.opensdf
+BaseBlank.xcodeproj
+BaseBlank.VC.opendb
+*.suo
