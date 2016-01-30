@@ -24,5 +24,7 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) override;
 
 	void MoveSide(float Scale);
+
+	void MoveForward(float Scale);
 	
 };

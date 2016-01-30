@@ -19,7 +19,9 @@ class AFSMCharacter : public ACharacter
 protected:
 
 	/** Called for side to side input */
-	void MoveRight(float Val);
+	void MoveRight(float Value);
+
+	void MoveForward(float Value);
 
 	/** Handle touch inputs. */
 	void TouchStarted(const ETouchIndex::Type FingerIndex, const FVector Location);
@@ -30,6 +32,7 @@ protected:
 	// APawn interface
 	virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) override;
 	// End of APawn interface
+
 
 public:
 	AFSMCharacter();

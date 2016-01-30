@@ -20,7 +20,7 @@ AFSMCharacter::AFSMCharacter()
 	CameraBoom->bDoCollisionTest = false;
 	CameraBoom->TargetArmLength = 500.f;
 	CameraBoom->SocketOffset = FVector(0.f,0.f,75.f);
-	CameraBoom->RelativeRotation = FRotator(0.f,180.f,0.f);
+	CameraBoom->RelativeRotation = FRotator(0.f,75.f,0.f);
 
 	// Create a camera and attach to boom
 	SideViewCameraComponent = CreateDefaultSubobject<UCameraComponent>(TEXT("SideViewCamera"));
@@ -50,6 +50,8 @@ void AFSMCharacter::SetupPlayerInputComponent(class UInputComponent* InputCompon
 	InputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
 	InputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
 	InputComponent->BindAxis("MoveRight", this, &AFSMCharacter::MoveRight);
+	InputComponent->BindAxis("MoveForward", this, &AFSMCharacter::MoveForward);
+
 
 	InputComponent->BindTouch(IE_Pressed, this, &AFSMCharacter::TouchStarted);
 	InputComponent->BindTouch(IE_Released, this, &AFSMCharacter::TouchStopped);
@@ -59,6 +61,11 @@ void AFSMCharacter::MoveRight(float Value)
 {
 	// add movement in that direction
 	AddMovementInput(FVector(0.f,-1.f,0.f), Value);
+}
+
+void AFSMCharacter::MoveForward(float Value)
+{
+	AddMovementInput(FVector(1.f, 0.f, 0.f), Value);
 }
 
 void AFSMCharacter::TouchStarted(const ETouchIndex::Type FingerIndex, const FVector Location)
