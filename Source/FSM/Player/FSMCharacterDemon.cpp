@@ -23,7 +23,6 @@ void AFSMCharacterDemon::BeginPlay()
 void AFSMCharacterDemon::Tick( float DeltaTime )
 {
 	Super::Tick( DeltaTime );
-
 }
 
 // Called to bind functionality to input
@@ -36,6 +35,11 @@ void AFSMCharacterDemon::SetupPlayerInputComponent(class UInputComponent* InputC
 
 void AFSMCharacterDemon::MoveSide(float Scale)
 {
+	AddMovementInput(FVector(0, 1*Scale, 0));
+}
 
+void AFSMCharacterDemon::MoveForward(float Scale)
+{
+	AddMovementInput(FVector(0, 1 * Scale, 0));
 }
 
