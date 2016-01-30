@@ -13,3 +13,9 @@ AFSMGameMode::AFSMGameMode()
 		DefaultPawnClass = PlayerPawnBPClass.Class;
 	}
 }
+
+void AFSMGameMode::EndGameWithWinner(int ControllerIndex, FString WinnnerName)
+{
+	WinnerPlayerName = WinnnerName;
+	EndMatch();
+}
