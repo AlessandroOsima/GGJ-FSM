@@ -10,6 +10,13 @@ class AFSMGameMode : public AGameMode
 
 public:
 	AFSMGameMode();
+
+	UFUNCTION(BlueprintCallable, Category = Game)
+	void EndGameWithWinner(int32 ControllerIndex, FString WinnnerName);
+
+private:
+
+	FString WinnerPlayerName;
 };
 
 
