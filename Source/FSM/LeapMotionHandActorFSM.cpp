@@ -7,7 +7,7 @@
 
 
 
-void ALeapMotionHandActorFSM::FindPawnInRange(FVector Location, USphereComponent * SphereCollider, float SlowdownAmount)
+void ALeapMotionHandActorFSM::FindPawnInRange(FVector Location, USphereComponent * SphereCollider, float SlowdownAmount, float MinSlowdownAmount)
 {
 	ensure(SphereCollider);
 
@@ -24,9 +24,13 @@ void ALeapMotionHandActorFSM::FindPawnInRange(FVector Location, USphereComponent
 			{
 				UCharacterMovementComponent * mvm = Cast<UCharacterMovementComponent>(character->GetMovementComponent());
 
-				if (mvm)
+				if (mvm && mvm->MaxWalkSpeed > MinSlowdownAmount)
 				{
 					mvm->MaxWalkSpeed -= SlowdownAmount;
+				}
+				else if(mvm)
+				{
+					mvm->MaxWalkSpeed = MinSlowdownAmount;
 				}
 			}
 		}

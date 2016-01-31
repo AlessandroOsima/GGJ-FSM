@@ -16,7 +16,7 @@ class FSM_API ALeapMotionHandActorFSM : public ALeapMotionHandActor
 public:
 
 	UFUNCTION(BlueprintCallable, Category = Hit)
-	void FindPawnInRange(FVector Location, USphereComponent * SphereCollider, float SlowdownAmount);
+	void FindPawnInRange(FVector Location, USphereComponent * SphereCollider, float SlowdownAmount, float MinSlowdownAmount);
 
 	
 	
