@@ -13,5 +13,11 @@
 				"LeapMotionController"
 			]
 		}
+	],
+	"Plugins": [
+		{
+			"Name": "Substance",
+			"Enabled": true
+		}
 	]
 }
