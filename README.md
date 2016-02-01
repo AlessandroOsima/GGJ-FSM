@@ -17,7 +17,7 @@ Artists
 - Karim Di Gennaro
 - Fabio Salvi
 - Giulia
-- 
+
 Sound Designer:
 - Fabrizio Santosso
 
