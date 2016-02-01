@@ -14,11 +14,12 @@ Programmers:
 
 Artists
 - Giovanni De Francesco
-
-Sound Designer:
-- Fabrizio Santosso
 - Karim Di Gennaro
 - Fabio Salvi
 - Giulia
+- 
+Sound Designer:
+- Fabrizio Santosso
+
 
 This project runs on Unreal Engine 4.10.2
