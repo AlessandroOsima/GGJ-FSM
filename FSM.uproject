@@ -1,10 +1,6 @@
 {
 	"FileVersion": 3,
-<<<<<<< Updated upstream
-	"EngineAssociation": "{DBC573FA-4C2C-C7FA-0F83-E88A88BC132F}",
-=======
 	"EngineAssociation": "4.10",
->>>>>>> Stashed changes
 	"Category": "",
 	"Description": "",
 	"Modules": [
@@ -16,12 +12,6 @@
 				"Engine",
 				"LeapMotionController"
 			]
-		}
-	],
-	"Plugins": [
-		{
-			"Name": "Substance",
-			"Enabled": true
 		}
 	]
 }
