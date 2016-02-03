@@ -19,3 +19,8 @@ void AFSMGameMode::EndGameWithWinner(int ControllerIndex, FString WinnnerName)
 	WinnerPlayerName = WinnnerName;
 	EndMatch();
 }
+
+void AFSMGameMode::RestartMap()
+{
+	RestartGame();
+}

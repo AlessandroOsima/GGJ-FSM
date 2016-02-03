@@ -14,6 +14,9 @@ public:
 	UFUNCTION(BlueprintCallable, Category = Game)
 	void EndGameWithWinner(int32 ControllerIndex, FString WinnnerName);
 
+	UFUNCTION(BlueprintCallable, Category = Game)
+	void RestartMap();
+
 private:
 
 	FString WinnerPlayerName;
