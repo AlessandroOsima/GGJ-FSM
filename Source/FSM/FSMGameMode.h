@@ -3,6 +3,13 @@
 #include "GameFramework/GameMode.h"
 #include "FSMGameMode.generated.h"
 
+UENUM()
+enum class EMapEndBehavior
+{
+	Quit,
+	Restart
+};
+
 UCLASS(minimalapi)
 class AFSMGameMode : public AGameMode
 {
@@ -17,9 +24,19 @@ public:
 	UFUNCTION(BlueprintCallable, Category = Game)
 	void RestartMap();
 
+	void OnGameEnd();
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FSM Game")
+	TEnumAsByte<EMapEndBehavior> EndMapBehavior = EMapEndBehavior::Restart;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FSM Game")
+	float GameEndTimeout = 5.f;
+
 private:
 
 	FString WinnerPlayerName;
+
+	FTimerHandle    OnGameEndHandle;
 };
 
 

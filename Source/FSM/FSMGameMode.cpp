@@ -3,6 +3,8 @@
 #include "FSM.h"
 #include "FSMGameMode.h"
 #include "FSMCharacter.h"
+#include "Kismet/KismetSystemLibrary.h"
+#include "Kismet/GameplayStatics.h"
 
 AFSMGameMode::AFSMGameMode()
 {
@@ -22,5 +24,23 @@ void AFSMGameMode::EndGameWithWinner(int ControllerIndex, FString WinnnerName)
 
 void AFSMGameMode::RestartMap()
 {
-	RestartGame();
+	GetWorldTimerManager().SetTimer(OnGameEndHandle, this, &AFSMGameMode::OnGameEnd, GameEndTimeout, false);
+}
+
+void AFSMGameMode::OnGameEnd()
+{
+	switch (EndMapBehavior)
+	{
+	  case EMapEndBehavior::Quit:
+	  {
+		  UKismetSystemLibrary::QuitGame(GetWorld(), UGameplayStatics::GetPlayerController(GetWorld(),0), EQuitPreference::Quit);
+		 break;
+	  }
+	  case EMapEndBehavior::Restart:
+	  {
+		 RestartGame();
+		 break;
+	  }
+
+	}
 }
