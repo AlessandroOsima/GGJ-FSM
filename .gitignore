@@ -3,6 +3,7 @@
 /Saved
 *.sln
 *.sdf
+*.pdb
 BaseBlank.sdf
 BaseBlank.opensdf
 BaseBlank.xcodeproj
