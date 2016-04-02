@@ -5,6 +5,8 @@
 #include "FSMCharacter.h"
 #include "Kismet/KismetSystemLibrary.h"
 #include "Kismet/GameplayStatics.h"
+#include "Engine.h"
+#include "EngineGlobals.h"
 
 AFSMGameMode::AFSMGameMode()
 {
@@ -16,6 +18,17 @@ AFSMGameMode::AFSMGameMode()
 	//}
 
 	DefaultPawnClass = nullptr;
+}
+
+void AFSMGameMode::BeginPlay()
+{
+	TArray<FIntPoint> Resolutions;
+	if (GEngine && UKismetSystemLibrary::GetSupportedFullscreenResolutions(Resolutions))
+	{
+		GEngine->GetGameUserSettings()->SetScreenResolution(Resolutions[Resolutions.Num() - 1]);
+		GEngine->GetGameUserSettings()->SetFullscreenMode(EWindowMode::Fullscreen);
+		GEngine->GetGameUserSettings()->ApplySettings(true);
+	}
 }
 
 void AFSMGameMode::EndGameWithWinner(int ControllerIndex, FString WinnnerName)
